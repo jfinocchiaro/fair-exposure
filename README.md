@@ -1,4 +1,4 @@
-# long-term-fair-mdps
+# fair exposure under homophily
 
 ## Dependencies
 - Install dependencies by running pip install -r requirements.txt
@@ -8,7 +8,6 @@
 ## src
 - plartform_opt: optimization to find theta_policy for fairness-aware and agnostic problems.
 - players: has player class and some of the functionality of agents
-- political_influence: Initial trial of running political influence with manually specified parameters
 - sims: File specifies how to run and store simulation results.
 - sims_copy: some redundancy here with sims.  same functionality, but different form of outputting datatypes
 
