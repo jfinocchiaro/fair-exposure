@@ -393,7 +393,7 @@ def calc_errorbars(lst, n_std=1):
 
 def loadRuns(filename):
     """
-    Load saved runs from pickel files
+    Load saved runs from pickle files
     ------
     input
         :param  filename: string, filename of the pickel file being loaded

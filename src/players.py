@@ -48,7 +48,7 @@ def calcclick(player, t, P, q, theta, c = 1, v=1):
         :param  c: int, cost for clicking
         :param  v: int, value for liking
     output
-        :return 0 or 1
+        :return 0 or 1 (1 if the player clicked on the particle)
     """
     g = player.group
     s = player.article
@@ -62,6 +62,7 @@ def calcclick(player, t, P, q, theta, c = 1, v=1):
             return 1
         else:
             return 0
+    return 0
  
 
 def calcclickdict(player, t, P, q, theta, c, v):
@@ -91,6 +92,7 @@ def calcclickdict(player, t, P, q, theta, c, v):
         else:
             return 0
 
+    return 0
    
 def coin_toss(p):
     """

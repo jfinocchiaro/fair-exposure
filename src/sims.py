@@ -720,19 +720,22 @@ if __name__ == '__main__':
     ------
     
     """
+    #load parameters from dataset
+    dataset_name = 'twitter_abortion'
+    pi,beta_dist,P,v,c,q = get_params(dataset_name)
+    
     theta_additive = {1: 0.7383090139889638, -1: 0.9000000001963758}
     theta_ratio = {1: 0.6075487021940786, -1: 0.900000000045376}
     theta_opt = {1:0., -1:1.}
     theta_half = {1: 0.5, -1: 0.5}
-    thetas = {'additive' : theta_additive, 'ratio': theta_ratio, 'opt': theta_opt, 'half': theta_half}
+    theta_proprtional = {}
+    thetas = {'additive' : theta_additive, 'ratio': theta_ratio, 'opt': theta_opt, 'half': theta_half, 'proportional': pi}
     
     # SIMULATION PARAMETERS AGNOSTIC TO DATA
-    T = 5                 # max number of timesteps
+    T = 6                 # max number of timesteps
     M = 10000            # size of unit mass
 
-    #load parameters from dataset
-    dataset_name = 'twitter_abortion'
-    pi,beta_dist,P,v,c,q = get_params(dataset_name)
+
     
     ret1 = runModel_samepop(T, pi, M, P, beta_dist, v,c,q, thetas)
     ret2 = runModel_samepop(T, pi, M, P, beta_dist, v,c,q, thetas)
@@ -740,5 +743,6 @@ if __name__ == '__main__':
     num_trials = 2
     
     avg = average_dfs([runModel_samepop(T, pi, M, P, beta_dist, v,c,q, thetas) for ix in range(num_trials)])
-    print(avg['ratio'])
+    print(avg['ratio']['share'])
+    print(avg['proportional']['share'])
 
